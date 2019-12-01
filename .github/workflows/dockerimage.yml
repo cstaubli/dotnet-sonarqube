@@ -4,11 +4,20 @@ on: [push]
 
 jobs:
 
-  build:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: Build the Docker image
+            run: docker build 3.0/ --tag mickdunde/dotnet-sonarqube:$(date +%s)
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@master
-    - name: Build the Docker image
-      run: docker build 3.0/ --tag r.mickdunde.net/dotnet-sonarqube:$(date +%s)
+    push:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@master
+        - name: Publish to Registry
+            uses: elgohr/Publish-Docker-Github-Action@master
+            with:
+            name: mickdunde/dotnet-sonarqube
+            username: ${{ secrets.REG_USERNAME }}
+            password: ${{ secrets.REG_PASSWORD }}
