@@ -11,4 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build the Docker image
-      run: docker build 3.0/ --file Dockerfile --tag r.mickdunde.net/dotnet-sonarqube:$(date +%s)
+      run: docker build 3.0/ --tag r.mickdunde.net/dotnet-sonarqube:$(date +%s)
