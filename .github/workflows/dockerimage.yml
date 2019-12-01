@@ -1,6 +1,11 @@
 name: Docker Image CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 
 jobs:
   push:
@@ -13,3 +18,4 @@ jobs:
         name: mickdunde/dotnet-sonarqube
         username: ${{ secrets.REG_USERNAME }}
         password: ${{ secrets.REG_PASSWORD }}
+        snapshot: true
