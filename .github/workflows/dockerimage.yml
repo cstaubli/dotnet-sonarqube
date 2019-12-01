@@ -3,13 +3,13 @@ name: Docker Image CI
 on: [push]
 
 jobs:
-    push:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@master
-        - name: Publish to Registry
-            uses: elgohr/Publish-Docker-Github-Action@master
-            with:
-            name: mickdunde/dotnet-sonarqube
-            username: ${{ secrets.REG_USERNAME }}
-            password: ${{ secrets.REG_PASSWORD }}
+  push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: mickdunde/dotnet-sonarqube
+        username: ${{ secrets.REG_USERNAME }}
+        password: ${{ secrets.REG_PASSWORD }}
