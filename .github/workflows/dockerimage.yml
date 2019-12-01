@@ -3,14 +3,6 @@ name: Docker Image CI
 on: [push]
 
 jobs:
-
-    build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@master
-        - name: Build the Docker image
-            run: docker build 3.0/ --tag mickdunde/dotnet-sonarqube:$(date +%s)
-
     push:
         runs-on: ubuntu-latest
         steps:
