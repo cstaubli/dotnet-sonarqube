@@ -22,7 +22,7 @@ jobs:
         dockerfile: Dockerfile
         tags: "dotnet-3.1,latest"
 
-  dotnet-3.0:
+  dotnet-3_0:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
