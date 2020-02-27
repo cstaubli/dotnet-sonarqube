@@ -19,3 +19,19 @@ jobs:
         username: ${{ secrets.REG_USERNAME }}
         password: ${{ secrets.REG_PASSWORD }}
         snapshot: true
+        dockerfile: Dockerfile
+        tags: "dotnet-3.1,latest"
+
+  dotnet-3.0:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish dotnet-3.0 to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: mickunde/dotnet-sonarqube
+        username: ${{ secrets.REG_USERNAME }}
+        password: ${{ secrets.REG_PASSWORD }}
+        snapshot: true
+        dockerfile: Dockerfile-3.0
+        tags: "dotnet-3.0"
