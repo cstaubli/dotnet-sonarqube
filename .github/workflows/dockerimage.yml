@@ -8,11 +8,11 @@ on:
     - cron: "0 2 * * 0" # Weekly on Sundays at 02:00
 
 jobs:
-  push:
+  latest:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Publish to Registry
+    - name: Publish dotnet-3.1 to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
         name: mickdunde/dotnet-sonarqube
@@ -28,7 +28,7 @@ jobs:
     - name: Publish dotnet-3.0 to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: mickunde/dotnet-sonarqube
+        name: mickdunde/dotnet-sonarqube
         username: ${{ secrets.REG_USERNAME }}
         password: ${{ secrets.REG_PASSWORD }}
         dockerfile: Dockerfile-3.0
