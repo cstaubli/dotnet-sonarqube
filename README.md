@@ -1,3 +1,5 @@
+![Docker Image CI](https://github.com/cstaubli/dotnet-sonarqube/workflows/Docker%20Image%20CI/badge.svg)
+
 # About
 Sonarqube needs java installed, dotnet sdk image is lacking java. This image is based on dotnet-sdk and has openjdk installed
 
