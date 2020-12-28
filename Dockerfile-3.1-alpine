@@ -1,0 +1,12 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+
+LABEL maintainer="Christian Staubli <christian.staubli@gmail.com>"
+
+RUN apk --no-cache add openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+
+ENV JAVA_VER=11
+ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+
+ENV PATH="${PATH}:/root/.dotnet/tools"
+
+RUN dotnet tool install -g dotnet-sonarscanner
